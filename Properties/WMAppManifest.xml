@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="es-ES" />
-  <App xmlns="" ProductID="{f4cd8fbd-16ec-4d3f-89e5-ac823a47dbe5}" Title="SocialApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Partyme author" Description="Sample description" Publisher="Partyme" PublisherID="{8fb39412-cf59-41cf-ae65-a6b135fec3fc}">
+  <App xmlns="" ProductID="{f4cd8fbd-16ec-4d3f-89e5-ac823a47dbe5}" Title="SocialApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Muflar" Description="Sample description" Publisher="Mulflar" PublisherID="{8fb39412-cf59-41cf-ae65-a6b135fec3fc}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
