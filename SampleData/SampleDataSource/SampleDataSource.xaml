@@ -1,0 +1,19 @@
+﻿<!--
+      *********    NO MODIFIQUE ESTE ARCHIVO     *********
+      Este archivo se regenera mediante una herramienta de diseño.
+       Si realiza cambios en este archivo, puede causar errores.
+-->
+<SampleData:SampleDataSource xmlns:SampleData="clr-namespace:Blend.SampleData.SampleDataSource" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <SampleData:SampleDataSource.Collection>
+    <SampleData:Item años="29" nickName="Aliquam class" />
+    <SampleData:Item años="34" nickName="Integer aenean" />
+    <SampleData:Item años="23" nickName="Quisque mauris nam" />
+    <SampleData:Item años="32" nickName="Nullam cras" />
+    <SampleData:Item años="22" nickName="Curae donec" />
+    <SampleData:Item años="80" nickName="Duis sed aptent auctor" />
+    <SampleData:Item años="78" nickName="Congue dis" />
+    <SampleData:Item años="53" nickName="Etiam nunc est fusce" />
+    <SampleData:Item años="72" nickName="Maecenas lorem vivamus cursus" />
+    <SampleData:Item años="44" nickName="Aliquam praesent aliquet" />
+  </SampleData:SampleDataSource.Collection>
+</SampleData:SampleDataSource>

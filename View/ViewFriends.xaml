@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Partyme.View.ViewFriends"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <phone:LongListSelector x:Name="longListnearusers"
+                        IsGroupingEnabled="True" LayoutMode="List" HideEmptyGroups="False"
+                        GroupHeaderTemplate="{StaticResource LongListHeaderTemplate1}"
+                        JumpListStyle="{StaticResource LongListJumpStyle1}"
+                        Margin="1,0,-1,0" 
+                        ItemsSource="{Binding}">
+            <phone:LongListSelector.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="457" Height="120" Margin="0,0,0,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="30*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="55*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="foto" Source="{Binding imageURL, Mode=OneWay}" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image x:Name="chicochica" Source="{Binding isMen, Mode=OneWay}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="nombre" Text="{Binding nickName, Mode=OneWay}" Grid.Column="1" Grid.Row="1" FontSize="26.667" FontWeight="Bold" />
+                        <TextBlock x:Name="ubicacion" Text="{Binding placeName, Mode=OneWay}" Grid.Column="1" Height="23" Width="225" HorizontalAlignment="Left" />
+                        <TextBlock x:Name="numaños" Text="{Binding años, Mode=OneWay}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="40,0,0,0" Width="36" Height="36" HorizontalAlignment="Left" FontSize="26.667"/>
+                        <TextBlock x:Name="distancia" Text="{Binding distancia, Mode=OneWay}" Grid.Column="2" />
+                        <TextBlock x:Name="estado" Text="{Binding statusMessage, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Width="333" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,35,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                        <toolkit:ContextMenuService.ContextMenu>
+                            <toolkit:ContextMenu IsZoomEnabled="True" x:Name="ContextMenu" >
+                                
+                            </toolkit:ContextMenu>
+                        </toolkit:ContextMenuService.ContextMenu>
+                    </Grid>
+                </DataTemplate>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
+    </Grid>
+</UserControl>

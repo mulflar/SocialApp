@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Partyme.View.ViewPhoneRequest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <phone:LongListSelector x:Name="longListreq"
+                        IsGroupingEnabled="False" LayoutMode="List"
+                        ItemsSource="{Binding}"  Background="#FFEA6262" Foreground="#FF0C0C0C">
+            <phone:LongListSelector.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="400" Height="120">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image x:Name="foto" Source="{Binding imageURL}" HorizontalAlignment="Stretch" Height="120" Grid.RowSpan="4" VerticalAlignment="Stretch" Width="111" Margin="0,0,289,0" Grid.ColumnSpan="2"/>
+                        <TextBlock x:Name="nombre" Text="{Binding nickName}" Grid.Column="1" Margin="10,0" Grid.Row="1"/>
+                        <TextBlock x:Name="informacion" Text="Te ha enviado su teléfono" HorizontalAlignment="Left" Grid.Row="2" Width="270" Grid.Column="1" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock x:Name="informacion2" Text="{Binding phone}" HorizontalAlignment="Left" Grid.Row="3" Width="270" Grid.Column="1" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock x:Name="tiempo" HorizontalAlignment="Left" Text="{Binding fecha}" Grid.Column="1" Margin="10,0,0,0" Width="270"/>
+                        <toolkit:ContextMenuService.ContextMenu>
+                            <toolkit:ContextMenu IsZoomEnabled="True" x:Name="ContextMenu" >
+                                <toolkit:MenuItem x:Name="aceptar" Header="Guardar en contactos" Tap="aceptar_Tap"/>
+                                <toolkit:MenuItem x:Name="rechazar" Header="Rechazar teléfono" Tap="rechazar_Tap"/>
+                                <toolkit:MenuItem x:Name="view" Header="Ver Perfil" Tap="view_Tap"/>
+                            </toolkit:ContextMenu>
+                        </toolkit:ContextMenuService.ContextMenu>
+                    </Grid>
+                </DataTemplate>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
+    </Grid>
+</UserControl>

@@ -1,0 +1,124 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Partyme.traseramapa"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+        <DataTemplate x:Key="groupHeaderTemplate">
+            <Border Width="300" Height="72" HorizontalAlignment="Left" 
+                    Background="{Binding Converter={StaticResource BackgroundConverter}}" 
+                    Margin="6">
+                <TextBlock Text="{Binding Title}"
+                           FontSize="40" Padding="6"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Foreground="{Binding Converter={StaticResource ForegroundConverter}}" />
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="localesTemplate">
+            <Grid Width="457" Height="120" Background="{Binding back}" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="logo" Source="{Binding logo_image}" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image x:Name="iconosubtipo" Grid.Row="1" Grid.Column="1" Source="{Binding type_usable}" HorizontalAlignment="Left" Width="36" Height="36" VerticalAlignment="Center"/>
+                <Image x:Name="chico" Source="/Images/iconos/icon.gender.male.png" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image x:Name="chica" Source="/Images/iconos/icon.gender.female.png" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="80,0,0,0"/>
+                <Image x:Name="like" Grid.Row="3" Grid.Column="2" Source="/Images/iconos/icon.thumbs.up.png" HorizontalAlignment="Left" Margin="0,0,10,0"/>
+                <Image x:Name="fav" Grid.Row="3" Grid.Column="2" Source="{Binding user_favourite_place}" HorizontalAlignment="Center" Width="36" Height="36"/>
+                <Image x:Name="vip" Grid.Row="3" Grid.Column="2" Source="{Binding user_vip_in_place}" HorizontalAlignment="Right" Width="36" Height="36"/>
+                <TextBlock x:Name="nombre" Text="{Binding name}" Grid.Column="1" Grid.Row="1" Margin="40,0,0,0" FontSize="26.667" FontWeight="Bold" />
+                <TextBlock x:Name="tipo" Text="{Binding type}" Grid.Column="1" Height="23" Width="225" HorizontalAlignment="Left" />
+                <TextBlock x:Name="numchicos" Text="{Binding number_of_men}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="40,0,0,0" Width="36" Height="36" HorizontalAlignment="Left" FontSize="26.667"/>
+                <TextBlock x:Name="numchicas" Text="{Binding number_of_women}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="120,0,0,0" FontSize="26.667" HorizontalAlignment="Left" Width="36" Height="36"/>
+                <TextBlock x:Name="numlikes" Text="{Binding number_like_people}" Grid.Row="3" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" Margin="0,0,-1,0" Width="36" Grid.Column="1" Height="36"/>
+                <TextBlock x:Name="distancia" Text="{Binding distancia}" Grid.Column="2" />
+                <TextBlock x:Name="subtipo" Text="{Binding subtype}" Grid.Row="1" Grid.Column="1" Width="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,35,0,0" Grid.RowSpan="2"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="genteTemplate">
+            <Grid Height="120" Width="457">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="foto" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" Grid.RowSpan="4"/>
+                <Image x:Name="camara" HorizontalAlignment="Right" Height="50" VerticalAlignment="Bottom" Width="50" Grid.Row="3"/>
+                <Image x:Name="sexoimg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="50" Grid.Row="3" Grid.Column="1" Source="{Binding isMen}"/>
+                <TextBlock x:Name="localizacion" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Column="1"/>
+                <TextBlock x:Name="name" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock x:Name="estado" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding statusMessage}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock x:Name="años" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding edad}" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1"/>
+                <TextBlock x:Name="numfotos" HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding numImages}" VerticalAlignment="Top" Grid.Row="3"/>
+                <TextBlock x:Name="distancia" Grid.Column="2" />
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="LongListSelectorJumpListStyle" TargetType="phone:LongListSelector">
+            <Setter Property="GridCellSize"  Value="457,113"/>
+            <Setter Property="LayoutMode" Value="Grid" />
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}"
+                                        Width="400" Height="113" Margin="6" >
+                            <TextBlock Text="{Binding Title}"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                               FontSize="48" Padding="6"
+                                               Foreground="{Binding Converter={StaticResource ForegroundConverter}}"
+                                               VerticalAlignment="Center"/>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </phone:PhoneApplicationPage.Resources>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="MY APPLICATION">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Locales">
+                <Grid>
+                    <phone:LongListSelector x:Name="longListLocales"
+                        IsGroupingEnabled="True" LayoutMode="List" HideEmptyGroups="False"
+                        ItemTemplate="{StaticResource localesTemplate}"
+                        GroupHeaderTemplate="{StaticResource groupHeaderTemplate}"
+                        JumpListStyle="{StaticResource LongListSelectorJumpListStyle}"
+                        Margin="1,0,-1,0" SelectionChanged="longListLocales_SelectionChanged"/>
+                </Grid>
+            </phone:PivotItem>
+
+           
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
